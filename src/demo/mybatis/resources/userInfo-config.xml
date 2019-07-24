@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mybatisEntity">
+    <!--无条件查询-->
+    <select id="listUserInfo" resultType="demo.mybatis.entity.UserInfo">
+        SELECT user_name ,user_addr FROM user_info
+    </select>
+    <!--通过id查询-->
+    <select id="getUserInfoById" resultType="demo.mybatis.entity.UserInfo">
+        SELECT user_name ,user_addr FROM user_info WHERE user_id=#{user_id}
+    </select>
+
+    <!--add-->
+    <insert id="addUserInfo">
+        INSERT INTO user_info(user_name,user_addr)VALUES(#{user_name},#{user_addr})
+    </insert>
+
+    <!--delete-->
+    <delete id="delUserInfoById">
+        DELETE FROM user_info WHERE user_id=#{user_id}
+    </delete>
+</mapper>
